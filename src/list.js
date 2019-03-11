@@ -4,6 +4,7 @@ export default class List {
       this.pos = 0;
       this.data = [];  
     }
+    
     append(element) {
         this.data[this.size++] = element;
     }
