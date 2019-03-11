@@ -1,0 +1,28 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "datasctructure and algrithme",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx babel-node ./src/test-list.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamerKing/ds-algrithms.git"
+  },
+  "keywords": [
+    "datastructure",
+    "algorithms"
+  ],
+  "author": "DreamerKing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DreamerKing/ds-algrithms/issues"
+  },
+  "homepage": "https://github.com/DreamerKing/ds-algrithms#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4"
+  }
+}
