@@ -1,4 +1,4 @@
-import Stack from './stack';
+import Stack from '../src/stack';
 
 function fact(n){
     let s = new Stack();

@@ -1,4 +1,4 @@
-import List from './list';
+import List from "../src/list";
 
 let names = new List();
 names.append("King");

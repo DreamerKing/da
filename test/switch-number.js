@@ -1,4 +1,4 @@
-import Stack from './stack';
+import Stack from "../src/stack";
 
 function mulBase(num, base){
     let s = new Stack();
