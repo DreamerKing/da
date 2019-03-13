@@ -6,7 +6,7 @@ export default class DLinkList {
     
     find(element) {
         let current = this.head;
-        while (current.element != element && current.element != 'head') {
+        while (current.element != element) {
             current = current.next;
         }
         return current;
@@ -22,7 +22,7 @@ export default class DLinkList {
 
     findPrev(element){
         let current = this.head;
-        while (current.next && (current.next.element != element) && current.next.element == 'head') {
+        while (current.next && (current.next.element != element) && (current.next.element !== 'head')) {
             current = current.next;
         }
         return current;
@@ -30,7 +30,7 @@ export default class DLinkList {
 
     remove(element){
         let current = this.find(element);
-        if(current.next && current.next.element == 'head'){
+        if(current.next && (current.next.element !== 'head')){
             current.prev.next = current.next;
             current.next.prev = current.prev;
             current.next = null;
@@ -40,15 +40,15 @@ export default class DLinkList {
 
     findLast(){
       let current = this.head;
-      while (current.next && current.next.element == "head") {
+      while (current.next && (current.next.element !== "head")) {
         current = current.next;
       }
       return current;
     }
 
     disReverse(){
-      let current = this.findLast();
-      while (current.prev && (current.prev.element == "head")) {
+      let current = this.findLast(); 
+      while (current.prev && (current.element !== "head")) {
         console.log(current.element);
         current = current.prev;
       }
@@ -56,7 +56,7 @@ export default class DLinkList {
 
     display(){
         let current = this.head;
-        while(current.next && (current.next.element == "head")) {
+        while(current.next && (current.next.element !== "head")) {
             console.log(current.next.element);
             current = current.next;
         }
