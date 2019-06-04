@@ -7,6 +7,7 @@ s.push(21);
 console.log(s.length);
 console.log(s.toString());
 s.pop();
+console.log(s.data);
 s.push(23);
 console.log(s.toString());
 console.log(s.length);
