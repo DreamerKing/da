@@ -47,7 +47,7 @@ export default class Set {
     //交集操作
     interset(set){
         let tempSet = new Set();
-        for (let i = 0, len = array.length; i < len; i++) {
+        for (let i = 0, len = this.dataStore.length; i < len; i++) {
             if(set.contains(this.dataStore[i])){
                 tempSet.add(this.dataStore[i]);
             }
@@ -61,7 +61,7 @@ export default class Set {
             return false;
         } else {
             for(let i = 0, len = this.size; i < len; i++){
-                if(!this.contains(this.dataStore[i])){
+                if(!set.contains(this.dataStore[i])){
                     return false;
                 }
             }
