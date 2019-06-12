@@ -41,6 +41,55 @@ export default class BST {
         }
     }
 
+    remove(data){
+        this.root = this.removeNode(this.root, data);
+    }
+
+    removeNode(node, data){
+        if(node == null){
+            return null;
+        }
+        if(data == node.data){
+            // 没有子节点
+            if(node.left == null && node.right == null){
+                return null;
+            }
+            // 没有左子节点
+            if(node.left == null){
+                return node.right;
+            }
+
+            // 没有右子节点
+            if(node.right == null){
+                return node.left;
+            }
+
+            // 有左右子节点 寻找右子树的最小值或左子树的最大值
+            let tempNode = this.getSmallest(node.right);
+            node.data = tempNode.data;
+            node.right = this.removeNode(node.right, tempNode.data);
+            return node;
+        } else if(data < node.data){
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+    }
+
+    getSmallest(root){
+        let current = root;
+        if(root == null){
+            return null;
+        }
+
+        while (current.left !== null) {
+            current = current.left;
+        }
+        return current;
+    }
+
     inOrder(node){
         if(!(node == null)){
             this.inOrder(node.left);

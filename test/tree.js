@@ -1,4 +1,4 @@
-import BST from '../src/tree';
+import BST from '../src/tree.mjs';
 let bst = new BST();
 
 beforeAll(()=> {
@@ -35,6 +35,13 @@ test('find(12)', () => {
     let f = bst.find(12)
     expect(f).toBe(null);
 });
+
+test("remove 45", () => {
+    bst.inOrder(bst.root);
+    console.log(bst.remove(45));
+    bst.inOrder(bst.root);
+  //  expect(bst.remove(45).show()).toBe(45);
+})
 
 
 

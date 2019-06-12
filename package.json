@@ -4,7 +4,7 @@
   "description": "datasctructure and algrithme",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-modules test/test-tree.mjs"
   },
   "repository": {
     "type": "git",

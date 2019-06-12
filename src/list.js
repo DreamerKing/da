@@ -91,7 +91,6 @@ export default class List {
         return this.pos >= 0;
     }
     
-
     get length() {
       return this.size;
     }
@@ -99,5 +98,4 @@ export default class List {
     toString() {
         return this.data;
     }
-
 };
