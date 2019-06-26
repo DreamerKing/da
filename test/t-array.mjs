@@ -45,7 +45,8 @@ console.log("ShellSort2:", end - start);
 //console.log(t.toString()); */
 
 console.log(t.toString());
-t.mergeSort();
-console.log(t.toString());
+//t.mergeSort();
+let qs = t.qSort();
+console.log(qs);
 
 

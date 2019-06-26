@@ -136,23 +136,11 @@ export default class TArray {
     }
   }
 
-  mergeArrays(arr, startLeft, leftStop, startRight, stopRight){
-     let rightArr = new Array(stopRight - startRight + 1);
-     let leftArr = new Array(leftStop - startLeft + 1);
-     let k = startRight;
-     for (let i = 0; i < ( rightArr.length - 1); i++) {
-      rightArr[i] = arr[k];
-      ++k;
-     }
-     k = startLeft;
-     for (let i = 0; i < (leftArr.length -1 ); i++) {
-      leftArr[i] = arr[k];
-      ++k;
-     }
-     rightArr[rightArr.lenght - 1] = Infinity;
-     leftArr[leftArr.lenght - 1] = Infinity;
+  mergeArrays(arr, leftStart, leftStop, rightStart, rightStop){
+     let leftArr = this.copyArray(arr, leftStart, leftStop);
+     let rightArr = this.copyArray(arr, rightStart, rightStop);
      let m = 0, n = 0;
-     for (let k = startLeft; k < stopRight; k++) {
+     for (let k = leftStart; k < rightStop; k++) {
        if(leftArr[m] < rightArr[n]) {
          arr[k] = leftArr[m];
          m++;
@@ -163,5 +151,36 @@ export default class TArray {
      }
      console.log("Left: ", leftArr);
      console.log("Right: ", rightArr);
+  }
+
+  copyArray(arr, start, stop){
+    let len = stop - start;
+    let retArr = new Array(len + 1);
+    for (let i = 0, k = start; i < len; i++,k++){
+      retArr[i] =  arr[k]    
+    };
+    retArr[len] = Infinity;
+    return retArr;
+  }
+
+  quickSort(arr){
+    if(arr.length == 0){
+      return [];
+    }
+    let left = [];
+    let right = [];
+    let pivot = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if(arr[i] < pivot){
+        left.push(arr[i]);
+      } else {
+        right.push(arr[i]);
+      }
+    }
+    return this.quickSort(left).concat(pivot, this.quickSort(right));
+  }
+
+  qSort(){
+    return this.quickSort(this.dataSource);
   }
 }
