@@ -1,6 +1,10 @@
-export default class Queue {
-    constructor() {
-        this.data = [];
+export default class ArrayQueue {
+    constructor(data = []) {
+        this.data = data;
+    }
+
+    get size() {
+        return this.data.length;
     }
 
     enqueue(element) {
@@ -20,17 +24,14 @@ export default class Queue {
     }
 
     toString(){
-        let str = '';
-        for (let i = 0; i < this.data.length; i++) {
-            str += this.data[i] + '\n';
-        }
-        return str;
+        // let str = '';
+        // for (let i = 0; i < this.data.length; i++) {
+        //     str += this.data[i] + ' -> ';
+        // }
+        return this.data.join(' -> ');
     }
 
-    empty() {
-        if(!this.data.length){
-            return true;
-        }
-        return false;
+    isEmpty() {
+        return this.data.length == 0;
     }
 };

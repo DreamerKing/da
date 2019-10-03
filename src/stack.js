@@ -1,7 +1,7 @@
-export default class Stack {
-    constructor() {
-        this.data = [];
-        this.top = 0;
+export default class ArrayStack {
+    constructor(data = []) {
+        this.data = data;
+        this.top = data.length;
     }
     // 入栈
     push(element) {
@@ -9,7 +9,10 @@ export default class Stack {
     }
     //出栈
     pop() {
-        return this.data[--this.top];
+       let data = this.data[--this.top];
+       this.data.length = this.top;
+        return data;
+      //  return this.data[--this.top];
     }
     //查看栈顶
     peek() {
@@ -23,6 +26,14 @@ export default class Stack {
     clear() {
         this.data = [];
         this.top = 0;
+    }
+
+    size(){
+        return this.top;
+    }
+
+    isEmpty() {
+        return this.top === 0;
     }
 
     toString() {
