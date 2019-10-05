@@ -1,5 +1,5 @@
 import Stack from "../src/stack";
-
+// 数制转换 
 export default function switchNumber(num, base){
     let s = new Stack();
     do {
