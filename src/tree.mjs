@@ -1,3 +1,4 @@
+import Queue from "./queue.mjs";
 export class Node {
     constructor(data, left, right) {
         this.data = data;
@@ -107,6 +108,21 @@ export default class BST {
             
         }
     }
+    // 广度优先非递归
+    // bff(node) {
+    //     let queue = new Queue();
+    //     queue.enqueue(node);
+    //     while(queue.length !== 0) {
+    //         let node = queue.dequeue();
+    //         console.log(node.value);
+    //         if(node.left) {
+    //             queue.enqueue(node.left);
+    //         }
+    //         if(node.right) {
+    //             queue.enqueue(node.right);
+    //         } 
+    //     }
+    // }
 
     postOrder(node){
         if(node !== null){

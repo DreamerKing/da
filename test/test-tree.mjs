@@ -9,6 +9,8 @@ bst.insert(3);
 bst.insert(99);
 bst.insert(22);
 
+// bst.bff(bst.root);
+
 bst.inOrder(bst.root);
 console.log("\n");
 bst.remove(45)
@@ -20,6 +22,3 @@ console.log("\n");
 bst.remove(16);
 bst.inOrder(bst.root);
 console.log("\n");
-
-
-

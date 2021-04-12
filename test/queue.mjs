@@ -1,4 +1,4 @@
-import Queue from '../src/queue';
+import Queue from '../src/queue.mjs';
 
 test('new Queue()', () => {
     let q = new Queue();
