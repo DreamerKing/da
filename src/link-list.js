@@ -2,7 +2,7 @@ export default class LinkList {
     constructor() {
         this.head = new Node('head');
     }
-    
+
     find(element) {
         let current = this.head;
         while (current.element != element) {
@@ -18,7 +18,7 @@ export default class LinkList {
         current.next = newNode;
     }
 
-    findPrev(element){
+    findPrev(element) {
         let current = this.head;
         while (current.next && (current.next.element != element)) {
             current = current.next;
@@ -26,20 +26,20 @@ export default class LinkList {
         return current;
     }
 
-    remove(element){
+    remove(element) {
         let prevNode = this.findPrev(element);
-        if(prevNode.next){
+        if (prevNode.next) {
             prevNode.next = prevNode.next.next;
         }
     }
 
-    display(){
+    display(callback = () => { }) {
         let current = this.head;
-        while(current.next) {
-            console.log(current.next.element);
+        while (current.next) {
+            callback(current.next.element);
             current = current.next;
         }
-    } 
+    }
 };
 
 class Node {
