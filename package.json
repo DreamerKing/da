@@ -1,10 +1,10 @@
 {
-  "name": "dsa",
+  "name": "da",
   "version": "1.0.0",
   "description": "datasctructure and algrithme",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node --experimental-modules test/test-tree.mjs"
+    "test": "node sort/babal-sort.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,6 @@
   },
   "homepage": "https://github.com/DreamerKing/ds-algrithms#readme",
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.4",
     "jest": "^24.8.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
   }
 }
