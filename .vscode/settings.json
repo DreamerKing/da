@@ -1,3 +1,25 @@
 {
-    "debug.node.autoAttach": "on"
+    "deno.enable": true,
+    // "deno.enablePaths": [
+    //     "./worker",
+    //     "../main.ts",
+    //     "../main_test.ts"
+    // ],
+    // "deno.config": "./deno.json",
+    "deno.suggest.imports.hosts": {
+        "https://deno.land": true
+      },
+    "deno.lint": true,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "editor.defaultFormatter": "denoland.vscode-deno",
+    "deno.cacheOnSave": true,
+    "deno.codeLens.implementations": true,
+    "deno.codeLens.references": true,
+    "deno.codeLens.referencesAllFunctions": true,
+    "deno.codeLens.test": true,
+    "deno.suggest.imports.autoDiscover": true,
+    "deno.unstable": true
 }
