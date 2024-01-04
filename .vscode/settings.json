@@ -21,5 +21,8 @@
     "deno.codeLens.referencesAllFunctions": true,
     "deno.codeLens.test": true,
     "deno.suggest.imports.autoDiscover": true,
-    "deno.unstable": true
+    "deno.unstable": true,
+    "deno.config": "deno.jsonc",
+    "deno.logFile": true,
+    "deno.internalDebug": true
 }

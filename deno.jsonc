@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": [
+      "deno.window",
+      "deno.ns",
+      "dom",
+      "ES2022"
+    ]
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.210.0/"
+  },
+  "lint": {
+    "include": ["main.ts", "src/"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
