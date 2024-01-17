@@ -30,7 +30,6 @@ export default class LinkedList<T> {
   }
 
   insert(position: number, element: T) {
-    if (position < 0) position = position += this.size; // 除了负索引
     if (position < 0 || position > this.size) {
       throw new Error("not support out of linked list range ");
     }
@@ -42,9 +41,9 @@ export default class LinkedList<T> {
       this.#head = node;
       node.next = current;
     } else {
-      while (index++ < position) {
+      while (index++ < position && current?.next) {
         previous = current;
-        current = current?.next as Node<T>;
+        current = current.next;
       }
       previous!.next = node;
       node.next = current;
@@ -53,7 +52,6 @@ export default class LinkedList<T> {
   }
 
   removeAt(position: number) {
-    if (position < 0) position = position += this.size;
     if (position < 0 || position > this.size) {
       throw new Error("not support out of linked list range ");
     }
