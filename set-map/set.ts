@@ -14,9 +14,13 @@ export default class Set<T> {
     };
   }
 
+  has(element: T): boolean {
+    return this.#items.includes(element);
+  }
+
   add(data: T) {
     let flag = false;
-    if (!this.#items.includes(data)) {
+    if (!this.has(data)) {
       this.#items.push(data);
       flag = true;
     }
@@ -33,8 +37,12 @@ export default class Set<T> {
     return flag;
   }
 
+  clear() {
+    this.#items = [];
+  }
+
   contains(data: T) {
-    return this.#items.includes(data);
+    return this.has(data);
   }
 
   get size() {
@@ -49,9 +57,7 @@ export default class Set<T> {
     }
 
     for (const item of set) {
-      if (!tempSet.contains(item)) {
-        tempSet.add(item);
-      }
+      tempSet.add(item);
     }
 
     return tempSet;
@@ -83,7 +89,7 @@ export default class Set<T> {
   }
 
   // 差集
-  differrence(set: Set<T>) {
+  differ(set: Set<T>) {
     const tempSet = new Set();
     for (const item of this) {
       if (!set.contains(item)) {
