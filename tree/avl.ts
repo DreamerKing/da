@@ -7,20 +7,66 @@ class Node<T> {
   }
 }
 
-function insertNode<T>(node: Node<T>, newNode: Node<T>) {
-  if (newNode.key < node.key) {
-    if (node.left === null) {
-      node.left = newNode;
-    } else {
-      insertNode(node.left, newNode);
+function nodeHeight<T>(node: Node<T> | null): number {
+  if (node === null) return -1;
+  return Math.max(nodeHeight(node.left), nodeHeight(node.right)) + 1;
+}
+// 右-右 向左单旋
+function rotationRR(node) {
+  const tmp = node.right;
+  node.right = tmp.left;
+  tmp.left = node;
+  return tmp;
+}
+
+// 左-左 向右单旋
+function rotationLL(node) {
+  const tmp = node.left;
+  node.left = tmp.right;
+  tmp.right = node;
+  return tmp;
+}
+
+// 左-右 向右双旋
+function rotationLR(node) {
+  node.left = rotationRR(node.left);
+  return rotationLL(node);
+}
+
+// 右-左 向左双旋
+function rotationRL(node) {
+  node.right = rotationLL(node.right);
+  return rotationRR(node);
+}
+
+function insertNode<T>(node: Node<T> | null, newNode: Node<T>) {
+  if (node === null) {
+    node = newNode;
+  } else if (newNode.key < node.key) {
+    node.left = insertNode(node.left, newNode);
+    if (node.left !== null) {
+      if (nodeHeight(node.left) - nodeHeight(node.right) > 1) {
+        if (newNode.key < node.left.key) {
+          node = rotationLL(node);
+        } else {
+          node = rotationLR(node);
+        }
+      }
     }
-  } else {
-    if (node.right === null) {
-      node.right = newNode;
-    } else {
-      insertNode(node.right, newNode);
+  } else if (newNode.key > node.key) {
+    node.right = insertNode(node.right, newNode);
+
+    if (node.right !== null) {
+      if (nodeHeight(node.right) - nodeHeight(node.left) > 1) {
+        if (newNode.key > node.right.key) {
+          node = rotationRR(node);
+        } else {
+          node = rotationRL(node);
+        }
+      }
     }
   }
+  return node;
 }
 
 type Callback = <T>(arg: Node<T> | T) => void;
@@ -127,7 +173,7 @@ export default class BST<T> {
   }
 
   remove(key: T) {
-    this.#root = removeNode(this.#root, key);
+    return removeNode(this.#root, key);
   }
 
   search(key: T): boolean {

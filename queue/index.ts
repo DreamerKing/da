@@ -1,23 +1,23 @@
 export default class Queue<T> {
-  items: T[];
+  #items: T[];
   constructor() {
-    this.items = [];
+    this.#items = [];
   }
 
   enqueue(element: T) {
-    this.items.push(element);
+    this.#items.push(element);
   }
 
   dequeue() {
-    return this.items.shift();
+    return this.#items.shift();
   }
 
   front(): T {
-    return this.items[0];
+    return this.#items[0];
   }
 
   clear() {
-    this.items.length = 0;
+    this.#items.length = 0;
   }
 
   isEmpty() {
@@ -25,10 +25,10 @@ export default class Queue<T> {
   }
 
   get size() {
-    return this.items.length;
+    return this.#items.length;
   }
 
   toString(seperate = ",") {
-    return this.items.map((item) => String(item)).join(seperate);
+    return this.#items.map((item) => String(item)).join(seperate);
   }
 }
